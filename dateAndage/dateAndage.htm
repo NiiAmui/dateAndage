@@ -5,45 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date and Birth year</title>
+
+  
 </head>
 <body>
 
     <center>
-        <form style="margin-top:100px;">
+       <h1>AGE CALCULATOR</h1> 
+            <form style="margin-top:100px;">
+                <div>
+                    Date of Birth
+                    <input type ="date" id="dob" style= "margin-bottom:5px ;" /> </br>
+                    
+                </div>
 
-            <input style="height:25px; width:250px; padding-left:10px;" placeholder="Type your age here"  type= "number" name="age" id="age" />
-            <input style="height:30px;" type="button" value="Find BirthYear" id="button"/>
-            <center><p id="year">Year</p></center>
-         </form>
+                <div>
+                    Age at Date
+                    <input type="date" id="endDate"  style= "margin-bottom:5px ;"/> </br>
+                </div>
+
+                <div>
+                    <input type="button" id="button" value ="Calculate Age" />
+                </div>
+                
+            </form>
+            <h1 id="showyears">0</h1>
+            <h3>years</h3>
     </center>
 
-    <script type="text/javascript">    
-
-        function calculate(){
-            var age = document.getElementById("age").value;
-
-            if (age == "" || age == 0) {
-                window.alert("Please type your age!");
-                return;
-            }
-
-            var date = new Date().getFullYear();
-            var birthyear = age - date
-            document.getElementById("year").style.display = "block";
-            document.getElementById("year").innerHTML = "Your birthyear is "+ birthyear;
-
-         }
-        
+    <script>    
 
         
+        var showYears = document.getElementById('showyears');
 
-        document.getElementById("year").style.display = "none";
+        var button=document.getElementById('button');
         
-        document.getElementById("button").onclick = function(){ calculate(); }
-    
-    
-    
-    </script>
+        
+        button.onclick=function(){
+            var startDate = document.getElementById('dob').value;
+            var dateEnd = document.getElementById('endDate').value;
+         var startDate = new Date(startDate);
+         var dateEnd = new Date(dateEnd);
+         var dateDifference = dateEnd - startDate;
+         var years = Math.floor(dateDifference/(365.25*24*60*60*1000));
+         var remaining = Math.floor(dateDifference%(365.25*24*60*60*1000));
+         var months = Math.floor(remaining/((365.25/12)*24*60*60*1000));
+         var remaining = Math.floor(remaining%((365.25/12)*24*60*60*1000));
+         var days = Math.floor(remaining/(24*60*60*1000));
+         var total = "You are "+ years;
+
+         showYears.innerHTML=total; }    
+         
+ 
+     
+     
+     
+     
+     </script>
 
 
 
