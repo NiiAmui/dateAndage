@@ -30,7 +30,7 @@
                 
             </form>
             <h1 id="showyears">0</h1>
-            <h3>years</h3>
+            <h3>Total Age</h3>
     </center>
 
     <script>    
@@ -52,7 +52,7 @@
          var months = Math.floor(remaining/((365.25/12)*24*60*60*1000));
          var remaining = Math.floor(remaining%((365.25/12)*24*60*60*1000));
          var days = Math.floor(remaining/(24*60*60*1000));
-         var total = "You are "+ years;
+         var total = "You are "+years+" years "+months+" months "+days+" days old";
 
          showYears.innerHTML=total; }    
          
